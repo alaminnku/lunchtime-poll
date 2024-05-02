@@ -1,0 +1,41 @@
+.alert {
+  position: fixed;
+  right: 50%;
+  top: -45px;
+  z-index: 11;
+  width: max-content;
+  border-radius: 8px;
+  padding: 8px 14px;
+  transform: translateX(50%);
+  transition: all ease-out 250ms;
+}
+
+.show_alert {
+  top: 4.5rem;
+}
+
+.failed {
+  background-color: var(--red);
+}
+
+.success {
+  background-color: var(--green);
+}
+
+.alert p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--almost_white);
+}
+
+.icon {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .alert {
+    padding: 6px 14px;
+  }
+}

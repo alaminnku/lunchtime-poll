@@ -1,4 +1,7 @@
 :root {
+  --green: #0cce6b;
+  --red: #eb5353;
+  --almost_white: #fafafa;
   --max_viewport_width: 1280px;
   --shadow_medium: 0 8px 30px rgba(0, 0, 0, 0.12);
   --shadow_large: 0 30px 60px rgba(0, 0, 0, 0.12);
