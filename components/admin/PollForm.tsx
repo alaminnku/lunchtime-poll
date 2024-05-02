@@ -16,6 +16,7 @@ export default function PollForm() {
     const secondOption = formData.get('secondOption') as string;
     const thirdOption = formData.get('thirdOption') as string;
     const fourthOption = formData.get('fourthOption') as string;
+    const fifthOption = formData.get('fifthOption') as string;
 
     if (
       !question ||
@@ -34,6 +35,7 @@ export default function PollForm() {
       secondOption,
       thirdOption,
       fourthOption,
+      fifthOption,
     ]);
     if (error) return setAlert({ message: error.message, type: 'failed' });
     setAlert({ message: 'Poll created', type: 'success' });
@@ -87,6 +89,15 @@ export default function PollForm() {
             id='fourthOption'
             name='fourthOption'
             placeholder='Enter fourth option'
+          />
+        </div>
+        <div className={styles.form_item}>
+          <label htmlFor='fifthOption'>Fifth option</label>
+          <input
+            type='text'
+            id='fifthOption'
+            name='fifthOption'
+            placeholder='Enter fifth option'
           />
         </div>
         <SubmitButton text='Create Poll' />

@@ -1,8 +1,9 @@
-import { getIp } from '@server/actions';
+import ActivePoll from '@components/generic/ActivePoll';
 
 export default async function HomePage() {
-  const ip = await getIp();
-
-  console.log(ip);
-  return <main>Hello</main>;
+  return (
+    <main>
+      <ActivePoll />
+    </main>
+  );
 }

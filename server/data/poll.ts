@@ -16,8 +16,7 @@ export async function createPoll(question: string, options: string[]) {
     poll = await db.poll.create({
       data: {
         question,
-        options,
-        status: 'ACTIVE',
+        options: options.filter((option) => option),
       },
     });
   } catch (err) {

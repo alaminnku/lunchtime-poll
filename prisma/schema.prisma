@@ -26,10 +26,16 @@ enum PollStatus {
   ARCHIVED
 }
 
+type Vote {
+  ipAddress String
+  answer    String
+}
+
 model Poll {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
   question  String
   options   String[]
+  votes     Vote[]
   status    PollStatus @default(ACTIVE)
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
