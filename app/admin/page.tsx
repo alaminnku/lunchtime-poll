@@ -1,9 +1,10 @@
-import LoginForm from '@components/LoginForm';
+import { authOptions } from '@lib/auth';
+import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 
-export default function AdminPage() {
-  return (
-    <main>
-      <LoginForm />
-    </main>
-  );
+export default async function AdminPage() {
+  const session = await getServerSession(authOptions);
+  if (!session || session.user.role !== 'ADMIN') redirect('/login');
+
+  return <main>Admin Page</main>;
 }
