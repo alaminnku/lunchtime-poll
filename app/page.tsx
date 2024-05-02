@@ -1,4 +1,4 @@
-import { getIp } from '@lib/server';
+import { getIp } from '@server/actions';
 
 export default async function HomePage() {
   const ip = await getIp();

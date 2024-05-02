@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  align-self: center;
+  border-radius: 0.5rem;
+  transition: all 150ms;
+  color: var(--almost_white);
+  background-color: var(--black);
+}
+
+@media (min-width: 1024px) {
+  .container:hover {
+    scale: var(--button_hover_scale);
+  }
+}

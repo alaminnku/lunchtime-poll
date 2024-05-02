@@ -3,16 +3,19 @@
 import SubmitButton from '@components/layout/SubmitButton';
 import styles from './PollForm.module.css';
 import { useAlert } from '@contexts/Alert';
+import { createPoll } from '@server/data/poll';
+import { useRouter } from 'next/navigation';
 
 export default function PollForm() {
+  const router = useRouter();
   const { setAlert } = useAlert();
 
   async function addPoll(formData: FormData) {
-    const question = formData.get('question');
-    const firstOption = formData.get('firstOption');
-    const secondOption = formData.get('secondOption');
-    const thirdOption = formData.get('thirdOption');
-    const fourthOption = formData.get('fourthOption');
+    const question = formData.get('question') as string;
+    const firstOption = formData.get('firstOption') as string;
+    const secondOption = formData.get('secondOption') as string;
+    const thirdOption = formData.get('thirdOption') as string;
+    const fourthOption = formData.get('fourthOption') as string;
 
     if (
       !question ||
@@ -26,20 +29,15 @@ export default function PollForm() {
         type: 'failed',
       });
 
-    const response = await fetch('/api/poll/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        question,
-        options: [firstOption, secondOption, thirdOption, fourthOption],
-      }),
-    });
-    const result = await response.json();
-    if (!response.ok) return setAlert({ message: result, type: 'failed' });
-
-    console.log(result);
+    const { error } = await createPoll(question, [
+      firstOption,
+      secondOption,
+      thirdOption,
+      fourthOption,
+    ]);
+    if (error) return setAlert({ message: error.message, type: 'failed' });
+    setAlert({ message: 'Poll created', type: 'success' });
+    router.push('/admin');
   }
 
   return (

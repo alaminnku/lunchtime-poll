@@ -1,0 +1,23 @@
+.container {
+  padding: var(--section_padding);
+}
+
+.container h2 {
+  margin-bottom: 8px;
+}
+
+.poll {
+  margin-bottom: 16px;
+}
+
+.question {
+  margin-bottom: 8px;
+}
+
+.poll_item {
+  margin-bottom: 8px;
+}
+
+.poll_item input {
+  margin-right: 8px;
+}

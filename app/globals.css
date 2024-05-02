@@ -49,6 +49,10 @@ blockquote {
   line-height: 1.7em;
 }
 
+a {
+  text-decoration: none;
+}
+
 button,
 input,
 select,

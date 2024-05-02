@@ -7,20 +7,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  ADMIN
+}
+
 model User {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId
   name           String
-  role           String
+  role           UserRole
   email          String   @unique
   hashedPassword String
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
 
+enum PollStatus {
+  ACTIVE
+  ARCHIVED
+}
+
 model Poll {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
   question  String
   options   String[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  status    PollStatus @default(ACTIVE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
