@@ -94,7 +94,8 @@ const createAccessToken = (email: string): string =>
 const createRefreshToken = (email: string): string =>
   sign({ email }, process.env.JWT_SECRET as string, { expiresIn: '30d' });
 
-const createTokenExpiry = (): number => new Date().setTime(Date.now() + 20000);
+const createTokenExpiry = (): number =>
+  new Date().setTime(Date.now() + 1000 * 60 * 60);
 
 async function refreshToken(token: JWT) {
   const decoded = verify(

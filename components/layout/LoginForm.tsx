@@ -2,7 +2,7 @@
 
 import { isValidEmail } from '@lib/utils';
 import styles from './LoginForm.module.css';
-import SubmitButton from './layout/SubmitButton';
+import SubmitButton from './SubmitButton';
 import { useAlert } from '@contexts/Alert';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
@@ -11,7 +11,7 @@ export default function LoginForm() {
   const router = useRouter();
   const { setAlert } = useAlert();
 
-  async function handleLogin(formData: FormData) {
+  async function login(formData: FormData) {
     const email = formData.get('email');
     const password = formData.get('password');
 
@@ -40,14 +40,24 @@ export default function LoginForm() {
   return (
     <section className={styles.container}>
       <h2>Login Now</h2>
-      <form action={handleLogin}>
+      <form action={login}>
         <div className={styles.form_item}>
           <label htmlFor='email'>Email address*</label>
-          <input type='email' name='email' placeholder='Enter email address' />
+          <input
+            type='email'
+            id='email'
+            name='email'
+            placeholder='Enter email address'
+          />
         </div>
         <div className={styles.form_item}>
           <label htmlFor='password'>Password*</label>
-          <input type='password' name='password' placeholder='Enter password' />
+          <input
+            type='password'
+            id='password'
+            name='password'
+            placeholder='Enter password'
+          />
         </div>
         <SubmitButton text='Login -->' />
       </form>
