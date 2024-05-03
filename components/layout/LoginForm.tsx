@@ -6,6 +6,7 @@ import SubmitButton from './SubmitButton';
 import { useAlert } from '@contexts/Alert';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function LoginForm() {
   const router = useRouter();
@@ -61,6 +62,9 @@ export default function LoginForm() {
         </div>
         <SubmitButton text='Login -->' />
       </form>
+      <p className={styles.forgot_password}>
+        Forgot password? Reset <Link href='/forgot-password'>here</Link>
+      </p>
     </section>
   );
 }
