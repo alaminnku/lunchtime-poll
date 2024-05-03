@@ -22,8 +22,8 @@ model User {
 }
 
 type Vote {
-  ipAddress String
-  answer    String
+  ip     String
+  answer String
 }
 
 model Poll {

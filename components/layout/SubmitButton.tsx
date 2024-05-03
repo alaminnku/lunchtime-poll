@@ -6,13 +6,18 @@ import styles from './SubmitButton.module.css';
 
 type Props = {
   text: string;
+  isDisabled?: boolean;
 };
 
-export default function SubmitButton({ text }: Props) {
+export default function SubmitButton({ text, isDisabled }: Props) {
   const { pending } = useFormStatus();
 
   return (
-    <button type='submit' disabled={pending} className={styles.container}>
+    <button
+      type='submit'
+      className={styles.container}
+      disabled={pending || isDisabled}
+    >
       {pending ? <BeatLoader color='#fafafa' size={10} /> : text}
     </button>
   );

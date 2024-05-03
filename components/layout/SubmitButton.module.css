@@ -12,6 +12,11 @@
   background-color: var(--black);
 }
 
+.container:disabled {
+  cursor: not-allowed;
+  background-color: var(--disabled_bg);
+}
+
 @media (min-width: 768px) {
   .container {
     width: 10rem;

@@ -3,29 +3,30 @@
 import { Poll } from '@prisma/client';
 import styles from './Vote.module.css';
 import SubmitButton from '@components/layout/SubmitButton';
-import { FormEvent, useState } from 'react';
-import { useAlert } from '@contexts/Alert';
+import { useState } from 'react';
 import { createVote } from '@server/actions/vote';
+import { useAlert } from '@contexts/Alert';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   poll: Poll;
-  ip: string | null;
+  ip: string;
 };
 
 export default function Vote({ ip, poll }: Props) {
+  const router = useRouter();
   const { setAlert } = useAlert();
   const [selectedOption, setSelectedOption] = useState('');
 
-  async function vote(e: FormEvent) {
-    e.preventDefault();
-    if (!ip) return;
-
+  async function addVote() {
     const { error } = await createVote(ip, selectedOption, poll.id);
     if (error) return setAlert({ message: error.message, type: 'failed' });
     setAlert({ message: 'Vote successful', type: 'success' });
+    router.push('/results');
   }
+
   return (
-    <form onSubmit={vote}>
+    <form action={addVote}>
       <p className={styles.question}>{poll.question}</p>
       <div className={styles.poll_items}>
         {poll.options.map((option, index) => (
@@ -40,7 +41,7 @@ export default function Vote({ ip, poll }: Props) {
           </div>
         ))}
       </div>
-      <SubmitButton text='Vote' />
+      <SubmitButton text='Vote' isDisabled={!selectedOption} />
     </form>
   );
 }

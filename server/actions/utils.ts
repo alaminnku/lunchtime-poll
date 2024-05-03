@@ -8,5 +8,5 @@ export async function getIp() {
 
   if (forwardedFor) return forwardedFor.split(',')[0].trim();
   if (realIp) return realIp.trim();
-  return null;
+  return '127.0.0.1';
 }
