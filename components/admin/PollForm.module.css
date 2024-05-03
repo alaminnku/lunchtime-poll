@@ -7,6 +7,8 @@
 }
 
 .container form {
+  display: flex;
+  flex-direction: column;
   box-shadow: var(--shadow_medium);
   border-radius: 8px;
   padding: 16px;
