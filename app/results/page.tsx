@@ -1,3 +1,9 @@
+import Results from '@components/generic/Results';
+
 export default function ResultsPage() {
-  return <main>ResultsPage</main>;
+  return (
+    <main>
+      <Results />
+    </main>
+  );
 }
