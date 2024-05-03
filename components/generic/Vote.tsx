@@ -4,9 +4,8 @@ import { Poll } from '@prisma/client';
 import styles from './Vote.module.css';
 import SubmitButton from '@components/layout/SubmitButton';
 import { FormEvent, useState } from 'react';
-import { db } from '@server/db';
 import { useAlert } from '@contexts/Alert';
-import { createVote } from '@server/actions';
+import { createVote } from '@server/actions/vote';
 
 type Props = {
   poll: Poll;
@@ -21,11 +20,9 @@ export default function Vote({ ip, poll }: Props) {
     e.preventDefault();
     if (!ip) return;
 
-    // const hasVoted = poll.votes?.some((vote) => vote.ipAddress === ip);
-    // if (hasVoted)
-    //   return setAlert({ message: "You've voted already", type: 'failed' });
-
-    createVote(ip, selectedOption, poll);
+    const { error } = await createVote(ip, selectedOption, poll.id);
+    if (error) return setAlert({ message: error.message, type: 'failed' });
+    setAlert({ message: 'Vote successful', type: 'success' });
   }
   return (
     <form onSubmit={vote}>

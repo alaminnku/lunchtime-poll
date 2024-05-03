@@ -5,19 +5,3 @@
 .container h2 {
   margin-bottom: 8px;
 }
-
-.question {
-  margin-bottom: 8px;
-}
-
-.poll_items {
-  margin-bottom: 16px;
-}
-
-.poll_item {
-  margin-bottom: 8px;
-}
-
-.poll_item input {
-  margin-right: 8px;
-}

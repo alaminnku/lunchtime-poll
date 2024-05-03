@@ -61,13 +61,6 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
-      const { email } = user;
-      user.accessToken = createAccessToken(email as string);
-      user.refreshToken = createRefreshToken(email as string);
-      user.expiresIn = createTokenExpiry();
-      return true;
-    },
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role;
@@ -89,7 +82,7 @@ export const authOptions: NextAuthOptions = {
 };
 
 const createAccessToken = (email: string): string =>
-  sign({ email }, process.env.JWT_SECRET as string, { expiresIn: '20s' });
+  sign({ email }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
 
 const createRefreshToken = (email: string): string =>
   sign({ email }, process.env.JWT_SECRET as string, { expiresIn: '30d' });

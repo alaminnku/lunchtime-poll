@@ -1,7 +1,6 @@
 'use server';
 
 import { db } from '@server/db';
-import { unstable_cache } from 'next/cache';
 import { CustomError } from 'types';
 
 export async function createPoll(question: string, options: string[]) {
@@ -42,5 +41,3 @@ export async function getCurrentPoll() {
   }
   return { poll, error };
 }
-
-export const getActivePoll = unstable_cache(getCurrentPoll);
