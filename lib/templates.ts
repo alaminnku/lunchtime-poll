@@ -10,3 +10,14 @@ export function passwordResetTemplate(user: User, link: string) {
           `,
   };
 }
+
+export function passwordResetConfirmationTemplate(user: User) {
+  return {
+    to: user.email,
+    from: process.env.SENDER_EMAIL as string,
+    subject: `Lunchtime Poll Password Reset`,
+    html: `
+        <p>Hi ${user.name}, your Lunchtime Poll password reset is successful.</p>
+        `,
+  };
+}

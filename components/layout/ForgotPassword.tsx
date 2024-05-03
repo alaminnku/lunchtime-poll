@@ -22,6 +22,7 @@ export default function ForgotPassword() {
 
     const { error } = await forgotPassword(email);
     if (error) return setAlert({ message: error.message, type: 'failed' });
+
     setAlert({ message: 'Instructions sent to your email', type: 'success' });
     router.push('/');
   }
