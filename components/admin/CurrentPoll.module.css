@@ -21,3 +21,12 @@
 .poll_item input {
   margin-right: 8px;
 }
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.buttons a:first-child {
+  margin-right: 1rem;
+}

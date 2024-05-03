@@ -12,6 +12,9 @@ export async function createPoll(
   let poll;
   let error;
   try {
+    if (!question || options.length < 4)
+      throw new Error('Please provide required fields');
+
     poll = await db.poll.create({
       data: {
         question,

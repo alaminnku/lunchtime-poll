@@ -11,3 +11,7 @@ export const isValidEmail = (email: string) => {
 
 export const getISOStringWithoutTime = () =>
   `${new Date().toISOString().split('T')[0]}T00:00:00.000Z`;
+
+export const createISOString = (date: string) => new Date(date).toISOString();
+
+export const dateToMS = (date: string) => new Date(date).getTime();

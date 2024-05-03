@@ -5,12 +5,18 @@ import styles from './PollForm.module.css';
 import { useAlert } from '@contexts/Alert';
 import { createPoll } from '@server/data/poll';
 import { useRouter } from 'next/navigation';
+import { createISOString } from '@lib/utils';
 
-export default function PollForm() {
+type Props = {
+  action?: 'schedule';
+};
+
+export default function PollForm({ action }: Props) {
   const router = useRouter();
   const { setAlert } = useAlert();
 
   async function addPoll(formData: FormData) {
+    const date = formData.get('date') as string;
     const question = formData.get('question') as string;
     const firstOption = formData.get('firstOption') as string;
     const secondOption = formData.get('secondOption') as string;
@@ -23,29 +29,42 @@ export default function PollForm() {
       !firstOption ||
       !secondOption ||
       !thirdOption ||
-      !fourthOption
+      !fourthOption ||
+      (action === 'schedule' && !date)
     )
       return setAlert({
-        message: 'Question or options are missing',
+        message: 'Please provide required fields',
         type: 'failed',
       });
 
-    const { error } = await createPoll(question, [
-      firstOption,
-      secondOption,
-      thirdOption,
-      fourthOption,
-      fifthOption,
-    ]);
+    const { error } = await createPoll(
+      question,
+      [firstOption, secondOption, thirdOption, fourthOption, fifthOption],
+      date ? createISOString(date) : undefined
+    );
     if (error) return setAlert({ message: error.message, type: 'failed' });
     setAlert({ message: 'Poll created', type: 'success' });
-    router.push('/admin');
+    !action && router.push('/admin');
   }
+
+  const today = new Date().toISOString().split('T')[0];
 
   return (
     <section className={styles.container}>
-      <h2>Create Poll</h2>
+      <h2>{action === 'schedule' ? 'Schedule Polls' : 'Create Poll'}</h2>
       <form action={addPoll}>
+        {action === 'schedule' && (
+          <div className={styles.form_item}>
+            <label htmlFor='date'>Date*</label>
+            <input
+              id='date'
+              type='date'
+              name='date'
+              min={today}
+              placeholder='Enter poll question'
+            />
+          </div>
+        )}
         <div className={styles.form_item}>
           <label htmlFor='question'>Question*</label>
           <input
@@ -100,7 +119,9 @@ export default function PollForm() {
             placeholder='Enter fifth option'
           />
         </div>
-        <SubmitButton text='Create Poll' />
+        <SubmitButton
+          text={action === 'schedule' ? 'Schedule Poll' : 'Create Poll'}
+        />
       </form>
     </section>
   );
