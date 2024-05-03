@@ -1,7 +1,7 @@
 'use server';
 
+import { handleError } from '@lib/error';
 import { db } from '@server/db';
-import { CustomError } from 'types';
 
 export async function createVote(ip: string, answer: string, pollId: string) {
   let error;
@@ -22,8 +22,7 @@ export async function createVote(ip: string, answer: string, pollId: string) {
     });
   } catch (err) {
     console.log(err);
-    const e = err as CustomError;
-    error = { message: e.message };
+    error = handleError(err);
   }
   return { error };
 }
