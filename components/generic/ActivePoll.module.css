@@ -1,7 +1,3 @@
 .container {
   padding: var(--section_padding);
 }
-
-.container h2 {
-  margin-bottom: 8px;
-}

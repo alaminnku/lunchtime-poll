@@ -35,3 +35,10 @@
 .form_item input:focus {
   outline: 1px solid var(--black);
 }
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}

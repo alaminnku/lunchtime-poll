@@ -1,5 +1,6 @@
 .question {
-  margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
 .poll_items {
@@ -7,9 +8,13 @@
 }
 
 .poll_item {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .poll_item input {
   margin-right: 8px;
+}
+
+.poll_item label {
+  cursor: pointer;
 }

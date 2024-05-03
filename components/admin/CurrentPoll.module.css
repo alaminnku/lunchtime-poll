@@ -11,11 +11,12 @@
 }
 
 .question {
-  margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
 .poll_item {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .poll_item input {
