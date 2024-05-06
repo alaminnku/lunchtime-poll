@@ -6,6 +6,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@lib/auth';
 import { AuthProvider } from '@contexts/Auth';
 import { robots } from '@lib/metadata';
+import Header from '@components/layout/Header';
 
 export const viewport: Viewport = {
   themeColor: '#ffffff',
@@ -37,7 +38,10 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider session={session}>
-          <AlertProvider>{children}</AlertProvider>
+          <AlertProvider>
+            <Header />
+            {children}
+          </AlertProvider>
         </AuthProvider>
       </body>
     </html>
