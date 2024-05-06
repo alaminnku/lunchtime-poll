@@ -1,14 +1,30 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { inter } from '@lib/utils';
 import AlertProvider from '@contexts/Alert';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@lib/auth';
 import { AuthProvider } from '@contexts/Auth';
+import { robots } from '@lib/metadata';
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+  initialScale: 1,
+  maximumScale: 1,
+  width: 'device-width',
+};
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll',
+  robots: {
+    ...robots,
+    index: true,
+  },
   description: 'Lunchtime poll app',
+  authors: [{ name: 'Jaime' }],
+  twitter: {
+    card: 'summary_large_image',
+  },
+  keywords: 'Lunchtime poll, polling website',
 };
 
 export default async function RootLayout({

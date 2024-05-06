@@ -1,7 +1,9 @@
 import PollForm from '@components/admin/PollForm';
 import { authOptions } from '@lib/auth';
+import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
+import { openGraph } from '@lib/metadata';
 
 export default async function SchedulePollsPage() {
   const session = await getServerSession(authOptions);
@@ -13,3 +15,15 @@ export default async function SchedulePollsPage() {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Lunchtime Poll - Schedule polls',
+  description: 'Schedule polls',
+  openGraph: {
+    ...openGraph,
+    title: 'Lunchtime Poll - Schedule polls',
+  },
+  alternates: {
+    canonical: '/admin/schedule-polls',
+  },
+};

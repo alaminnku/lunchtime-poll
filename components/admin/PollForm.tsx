@@ -43,6 +43,7 @@ export default function PollForm({ action }: Props) {
       date ? createISOString(date) : undefined
     );
     if (error) return setAlert({ message: error.message, type: 'failed' });
+
     setAlert({ message: 'Poll created', type: 'success' });
     !action && router.push('/admin');
   }

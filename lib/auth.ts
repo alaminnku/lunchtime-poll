@@ -2,7 +2,7 @@ import { NextAuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { JWT } from 'next-auth/jwt';
 import { JwtPayload, sign, verify } from 'jsonwebtoken';
-import { db } from '@server/db';
+import { db } from '@server/config/db';
 import bcrypt from 'bcrypt';
 
 // NextAuth options

@@ -2,7 +2,7 @@
 
 import { handleError } from '@lib/error';
 import { isValidEmail } from '@lib/utils';
-import { db } from '@server/db';
+import { db } from '@server/config/db';
 import { JwtPayload, sign, verify } from 'jsonwebtoken';
 import mail from '@sendgrid/mail';
 import {

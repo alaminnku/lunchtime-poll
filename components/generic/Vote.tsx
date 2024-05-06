@@ -4,7 +4,7 @@ import { Poll } from '@prisma/client';
 import styles from './Vote.module.css';
 import SubmitButton from '@components/layout/SubmitButton';
 import { useState } from 'react';
-import { createVote } from '@server/actions/vote';
+import { createVote } from '@server/actions/poll';
 import { useAlert } from '@contexts/Alert';
 import { useRouter } from 'next/navigation';
 
