@@ -8,7 +8,7 @@ export default async function ActivePoll() {
   const ip = await getIp();
   const { poll, error } = await getCurrentPoll();
 
-  if (poll && poll.votes.some((vote) => vote.ip === ip)) redirect('/results');
+  // if (poll && poll.votes.some((vote) => vote.ip === ip)) redirect('/results');
 
   return (
     <section className={styles.container}>
