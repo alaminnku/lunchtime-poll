@@ -3,7 +3,7 @@
 import SubmitButton from '@components/layout/SubmitButton';
 import styles from './PollForm.module.css';
 import { useAlert } from '@contexts/Alert';
-import { createPoll } from '@server/data/poll';
+import { createPoll } from '@server/actions/poll';
 import { useRouter } from 'next/navigation';
 import { createISOString } from '@lib/utils';
 
