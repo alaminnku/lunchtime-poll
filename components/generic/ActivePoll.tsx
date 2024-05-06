@@ -1,7 +1,7 @@
 import { getCurrentPoll } from '@server/data/poll';
 import styles from './ActivePoll.module.css';
 import Vote from './Vote';
-import { getIp } from '@server/utils';
+import { getIp } from '@server/lib/utils';
 import { redirect } from 'next/navigation';
 
 export default async function ActivePoll() {

@@ -1,6 +1,6 @@
 'use server';
 
-import { handleError } from '@lib/error';
+import { handleError } from '@server/lib/error';
 import { getISOStringWithoutTime } from '@lib/utils';
 import { db } from '@server/config/db';
 
