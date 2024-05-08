@@ -1,3 +1,5 @@
+'use client';
+
 import { MdErrorOutline } from 'react-icons/md';
 import styles from './Alert.module.css';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
