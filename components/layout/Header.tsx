@@ -8,7 +8,7 @@ export default function Header() {
       <nav>
         <Link href='/' className={styles.logo}>
           <Image
-            src='/layout/sponsor-logo.png'
+            src='/layout/logo.jpg'
             width={400}
             height={400}
             alt='Lunchtime poll logo'

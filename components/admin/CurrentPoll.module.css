@@ -6,7 +6,8 @@
   margin-bottom: 8px;
 }
 
-.poll {
+.poll,
+.error_message {
   margin-bottom: 16px;
 }
 

@@ -19,7 +19,7 @@ export default async function CurrentPoll() {
           ))}
         </div>
       )}
-      {error && <p>{error.message}</p>}
+      {error && <p className={styles.error_message}>{error.message}</p>}
       <div className={styles.buttons}>
         <LinkButton href='/admin/create-poll' text='Create Poll -->' />
         <LinkButton href='/admin/schedule-polls' text='Schedule Polls -->' />
