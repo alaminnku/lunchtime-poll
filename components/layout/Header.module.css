@@ -10,11 +10,14 @@
 
 .logo img {
   width: 12rem;
-  height: auto;
 }
 
 .sponsor_logo img {
   width: 3rem;
+}
+
+.logo img,
+.sponsor_logo img {
   height: auto;
 }
 
@@ -27,4 +30,14 @@
 .sponsor_logo p {
   font-weight: 700;
   text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    width: 50%;
+  }
+
+  .logo img {
+    width: 100%;
+  }
 }

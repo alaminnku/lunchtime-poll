@@ -9,8 +9,8 @@ export default function Header() {
         <Link href='/' className={styles.logo}>
           <Image
             src='/layout/logo.jpg'
-            width={400}
-            height={400}
+            width={800}
+            height={800}
             alt='Lunchtime poll logo'
           />
         </Link>
@@ -19,8 +19,8 @@ export default function Header() {
           <a href='http://www.203bedford.com/' target='_blank'>
             <Image
               src='/layout/sponsor-logo.png'
-              width={400}
-              height={400}
+              width={800}
+              height={800}
               alt='203B logo'
             />
           </a>
