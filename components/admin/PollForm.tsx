@@ -52,6 +52,7 @@ export default function PollForm({ action }: Props) {
 
   return (
     <section className={styles.container}>
+      <span onClick={() => router.back()}>{`<--`}</span>
       <h2>{action === 'schedule' ? 'Schedule Polls' : 'Create Poll'}</h2>
       <form action={addPoll}>
         {action === 'schedule' && (
