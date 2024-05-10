@@ -41,7 +41,13 @@ export default function BarChart({ poll }: Props) {
               {
                 label: poll.question,
                 data: voteGroups.map((group) => group.count),
-                backgroundColor: ['red', 'blue', 'yellow', 'green', 'orange'],
+                backgroundColor: [
+                  '#219C90',
+                  '#E9B824',
+                  '#EE9322',
+                  '#D83F31',
+                  '#141E46',
+                ],
               },
             ],
           },
