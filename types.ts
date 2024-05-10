@@ -30,3 +30,7 @@ declare module 'next-auth/jwt' {
     expiresIn: number;
   }
 }
+
+export type ErrorProps = {
+  reset: () => void;
+};
