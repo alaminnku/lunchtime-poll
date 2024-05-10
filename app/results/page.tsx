@@ -13,11 +13,11 @@ export default function ResultsPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll - Results',
+  title: 'Results | Lunchtime Poll',
   description: "Today's poll results",
   openGraph: {
     ...openGraph,
-    title: 'Lunchtime Poll - Results',
+    title: 'Results',
   },
   alternates: {
     canonical: '/results',

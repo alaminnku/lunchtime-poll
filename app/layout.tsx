@@ -20,12 +20,11 @@ export const metadata: Metadata = {
     ...robots,
     index: true,
   },
-  description: 'Lunchtime poll app',
-  authors: [{ name: 'Jaime' }],
+  authors: [{ name: 'Jaime Clarke' }],
+  keywords: 'Lunchtime poll, polling website',
   twitter: {
     card: 'summary_large_image',
   },
-  keywords: 'Lunchtime poll, polling website',
 };
 
 export default async function RootLayout({

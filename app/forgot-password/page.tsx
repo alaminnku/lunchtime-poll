@@ -11,11 +11,11 @@ export default function ForgotPasswordPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll - Forgot password',
+  title: 'Forgot password | Lunchtime Poll',
   description: 'Lunchtime poll forgot password',
   openGraph: {
     ...openGraph,
-    title: 'Lunchtime Poll - Forgot password',
+    title: 'Forgot password',
   },
   alternates: {
     canonical: '/forgot-password',

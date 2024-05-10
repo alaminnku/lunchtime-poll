@@ -17,11 +17,11 @@ export default async function CreatePollPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll - Create poll',
+  title: 'Create poll | Lunchtime Poll',
   description: 'Create poll',
   openGraph: {
     ...openGraph,
-    title: 'Lunchtime Poll - Create poll',
+    title: 'Create poll',
   },
   alternates: {
     canonical: '/admin/create-poll',

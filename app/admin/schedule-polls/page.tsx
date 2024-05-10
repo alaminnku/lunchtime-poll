@@ -17,11 +17,11 @@ export default async function SchedulePollsPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll - Schedule polls',
+  title: 'Schedule polls | Lunchtime Poll',
   description: 'Schedule polls',
   openGraph: {
     ...openGraph,
-    title: 'Lunchtime Poll - Schedule polls',
+    title: 'Schedule polls',
   },
   alternates: {
     canonical: '/admin/schedule-polls',

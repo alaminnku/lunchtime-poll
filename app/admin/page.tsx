@@ -17,11 +17,11 @@ export default async function AdminPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll - Admin',
-  description: 'Lunchtime poll admin',
+  title: 'Admin Dashboard - Lunchtime Poll',
+  description: 'Lunchtime poll admin dashboard',
   openGraph: {
     ...openGraph,
-    title: 'Lunchtime Poll - Admin',
+    title: 'Admin Dashboard',
   },
   alternates: {
     canonical: '/admin',

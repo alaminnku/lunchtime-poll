@@ -17,11 +17,11 @@ export default async function LoginPage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll - Login',
+  title: 'Login | Lunchtime Poll',
   description: 'Lunchtime poll login',
   openGraph: {
     ...openGraph,
-    title: 'Lunchtime Poll - Login',
+    title: 'Login',
   },
   alternates: {
     canonical: '/login',

@@ -16,11 +16,11 @@ export default function ResetPasswordPage() {
 export async function generateMetadata({ params }: Props) {
   const { user, token } = params;
   return {
-    title: 'Lunchtime Poll - Reset password',
+    title: 'Reset password | Lunchtime Poll',
     description: 'Reset your Lunchtime Poll password',
     openGraph: {
       ...openGraph,
-      title: 'Lunchtime Poll - Reset password',
+      title: 'Reset password',
     },
     alternates: {
       canonical: `/reset-password/${user}/${token}`,

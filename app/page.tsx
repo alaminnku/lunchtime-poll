@@ -13,11 +13,11 @@ export default async function HomePage() {
 }
 
 export const metadata: Metadata = {
-  title: 'Lunchtime Poll - Home',
+  title: 'Home | Lunchtime Poll',
   description: 'Polling website',
   openGraph: {
     ...openGraph,
-    title: 'Lunchtime Poll - Home',
+    title: 'Home',
   },
   alternates: {
     canonical: '/',
