@@ -63,7 +63,7 @@ export default function PollForm({ action }: Props) {
               type='date'
               name='date'
               min={today}
-              placeholder='Enter poll question'
+              defaultValue={today}
             />
           </div>
         )}
